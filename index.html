@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>抽奖系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ 幸运抽奖 ✨</h1>
+        
+        <!-- 抽奖区 -->
+        <div class="section main-section">
+            <div class="draw-area">
+                <button id="drawBtn" onclick="drawPrize()" class="draw-button">
+                    🎲 开始抽奖
+                </button>
+                <button onclick="resetPrizes()" class="reset-button">
+                    🔄 重置
+                </button>
+            </div>
+            <div id="currentPrize" class="current-prize"></div>
+        </div>
+
+        <!-- 抽奖历史 -->
+        <div class="section">
+            <h2>📜 抽奖记录</h2>
+            <div id="history" class="history-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
