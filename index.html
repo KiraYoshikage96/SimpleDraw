@@ -42,6 +42,16 @@
         </aside>
     </div>
 
+    <!-- 中奖弹窗 -->
+    <div id="winModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="congrats-title">🎉 恭喜中奖 🎉</div>
+            <div class="win-prize-name" id="modalPrizeName"></div>
+            <button class="modal-close-btn" onclick="closeModal()">开心收下</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

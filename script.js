@@ -85,11 +85,75 @@ function finishDraw(selectedPrize) {
     displayCurrentPrize(selectedPrize.name, false);
     updateHistory();
     
+    // 延迟显示弹窗
+    setTimeout(() => {
+        showWinModal(selectedPrize.name);
+    }, 300);
+    
     // 恢复按钮
     setTimeout(() => {
         isDrawing = false;
         updateDrawButton();
     }, 500);
+}
+
+// 显示中奖弹窗
+function showWinModal(prizeName) {
+    const modal = document.getElementById('winModal');
+    const prizeNameEl = document.getElementById('modalPrizeName');
+    
+    prizeNameEl.textContent = prizeName;
+    modal.classList.remove('hidden');
+    
+    // 播放烟花效果
+    triggerConfetti();
+}
+
+// 关闭弹窗
+function closeModal() {
+    const modal = document.getElementById('winModal');
+    modal.classList.add('hidden');
+}
+
+// 烟花效果
+function triggerConfetti() {
+    const count = 200;
+    const defaults = {
+        origin: { y: 0.7 }
+    };
+
+    function fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+        }));
+    }
+
+    fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
+    });
+
+    fire(0.2, {
+        spread: 60,
+    });
+
+    fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8
+    });
+
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2
+    });
+
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+    });
 }
 
 // 显示当前奖品
